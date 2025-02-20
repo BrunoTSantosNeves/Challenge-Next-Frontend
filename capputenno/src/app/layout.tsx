@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Saira } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Definição da fonte Saira para o texto principal
+const sairaSans = Saira({
+  variable: "--font-saira-sans",
   subsets: ["latin"],
+  weight: [ '300', '400', '500', '600', '700']
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Definição da fonte Saira para estilo mono (se necessário)
+const sairaMono = Saira({
+  variable: "--font-saira-mono",
   subsets: ["latin"],
 });
 
@@ -24,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${sairaSans.variable} ${sairaMono.variable}`}>
         {children}
       </body>
     </html>
