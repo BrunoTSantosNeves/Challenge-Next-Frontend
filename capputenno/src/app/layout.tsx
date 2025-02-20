@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${sairaSans.variable} ${sairaMono.variable}`}>
-        <header/>
+        <Header/>
         {children}
       </body>
     </html>
