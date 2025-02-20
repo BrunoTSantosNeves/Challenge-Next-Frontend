@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import { Saira } from "next/font/google";
 import "./globals.css";
+import { Header } from "@/components/header";
+ 
 
 // Definição da fonte Saira para o texto principal
 const sairaSans = Saira({
   variable: "--font-saira-sans",
   subsets: ["latin"],
-  weight: [ '300', '400', '500', '600', '700']
+  weight: ['300', '400', '500', '600', '700']
 });
 
-// Definição da fonte Saira para estilo mono (se necessário)
+// Definição da fonte Saira para estilo mono
 const sairaMono = Saira({
   variable: "--font-saira-mono",
   subsets: ["latin"],
@@ -28,6 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${sairaSans.variable} ${sairaMono.variable}`}>
+        <header/>
         {children}
       </body>
     </html>

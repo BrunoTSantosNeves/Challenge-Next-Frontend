@@ -28,7 +28,7 @@ const Logo = styled.a`
 export function Header(props : HeaderProps){
     return (
         <TagHeader>
-            <Logo className={SairaStencilOne.className}>Capputenno</Logo>
+            <Logo className={SairaStencilOne.className}></Logo>
            <div></div>
         </TagHeader>
     )
