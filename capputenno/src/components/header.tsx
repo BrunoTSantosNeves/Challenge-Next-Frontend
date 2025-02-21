@@ -1,3 +1,5 @@
+"use client"
+
 import styled from "styled-components";
 
 import { Saira_Stencil_One as SairaStencilOneFont } from "next/font/google";
@@ -28,7 +30,7 @@ const Logo = styled.a`
 export function Header(props : HeaderProps){
     return (
         <TagHeader>
-            <Logo className={SairaStencilOne.className}></Logo>
+            <Logo className={SairaStencilOne.className}>Capputenno</Logo>
            <div></div>
         </TagHeader>
     )
