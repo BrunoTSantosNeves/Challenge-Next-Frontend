@@ -3,6 +3,7 @@
 import styled from "styled-components";
 
 import { Saira_Stencil_One as SairaStencilOneFont } from "next/font/google";
+import { PrimaryInputWSearchIcon } from "./primary-input";
 
 const SairaStencilOne = SairaStencilOneFont({
     subsets: ["latin"],
@@ -27,11 +28,15 @@ const Logo = styled.a`
     line-height: 150%;
 `;
 
+
+
 export function Header(props : HeaderProps){
     return (
         <TagHeader>
             <Logo className={SairaStencilOne.className}>Capputenno</Logo>
-           <div></div>
+           <div>
+                <PrimaryInputWSearchIcon placeholder="Procurando algo específico"/>
+           </div>
         </TagHeader>
     )
 }
