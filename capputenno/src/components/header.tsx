@@ -25,7 +25,8 @@ const TagHeader = styled.header`
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 24px;
+        gap: 65px;
+        border-radius: 50%; 
     }
 
 
