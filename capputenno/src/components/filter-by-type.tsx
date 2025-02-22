@@ -1,4 +1,4 @@
-"use client"
+
 
 import styled from "styled-components"
 
@@ -11,7 +11,8 @@ const FilterList = styled.ul`
     align-items: center;
     justify-content: center;
     gap: 40px;
-    
+    margin-top: 105px;
+    list-style: none;
 
 `
 const FilterItem = styled.li<FilterBarItemProps>`
@@ -25,6 +26,7 @@ const FilterItem = styled.li<FilterBarItemProps>`
     color: var(--text--dark);
 
     border-bottom: ${props => props.selected ? '4px solid var(--orange--low)' : 'none'};
+
 
 `
 
