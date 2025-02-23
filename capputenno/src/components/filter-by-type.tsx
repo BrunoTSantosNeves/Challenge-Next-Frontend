@@ -1,5 +1,5 @@
-
-
+import { useFilter } from "@/hooks/useFilter";
+import { FilterType } from "@/types/filter-types";
 import styled from "styled-components"
 
 interface FilterBarItemProps {
@@ -22,6 +22,7 @@ const FilterItem = styled.li<FilterBarItemProps>`
     line-height: 22px;
     text-align: center;
     text-transform: uppercase;
+    cursor: pointer;
 
     color: var(--text--dark);
 
@@ -30,12 +31,30 @@ const FilterItem = styled.li<FilterBarItemProps>`
 
 `
 
-export function FilterBarType(){
-    return(
-       <FilterList>
-            <FilterItem selected>Todos os Produtos</FilterItem>
-            <FilterItem selected={false}>Camisetas</FilterItem>
-            <FilterItem selected={false}>Canecas</FilterItem>
-       </FilterList>
-    )
+export function FilterBarType() {
+    const { type, setType } = useFilter();
+
+    const handleChangeType = (value: FilterType) => {
+        setType(value);
+    };
+
+    return (
+        <FilterList>
+            <FilterItem 
+                selected={type === FilterType.ALL} 
+                onClick={() => handleChangeType(FilterType.ALL)}>
+                Todos os Produtos
+            </FilterItem>
+            <FilterItem 
+                selected={type === FilterType.SHIRT} 
+                onClick={() => handleChangeType(FilterType.SHIRT)}>
+                Camisetas
+            </FilterItem>
+            <FilterItem 
+                selected={type === FilterType.MUG} 
+                onClick={() => handleChangeType(FilterType.MUG)}>
+                Canecas
+            </FilterItem>
+        </FilterList>
+    );
 }

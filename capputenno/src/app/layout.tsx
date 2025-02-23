@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Saira } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header";
+import { FilterContextProvider } from "@/context/filter-context";
  
 
 // Definição da fonte Saira para o texto principal
@@ -30,8 +31,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${sairaSans.variable} ${sairaMono.variable}`}>
-        <Header/>
-        {children}
+        <FilterContextProvider>
+          <Header/>
+          {children}
+        </FilterContextProvider>
       </body>
     </html>
   );
