@@ -19,7 +19,7 @@ const TagHeader = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 160px;
+    padding: 20px 35px;
 
     > div {
         display: flex;
@@ -37,6 +37,7 @@ const Logo = styled.a`
     font-weight: 400;
     font-size: 40px;
     line-height: 150%;
+    
 `;
 
 
