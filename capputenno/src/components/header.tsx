@@ -6,6 +6,7 @@ import { Saira_Stencil_One as SairaStencilOneFont } from "next/font/google";
 import { PrimaryInputWSearchIcon } from "./primary-input";
 import { CartControl } from "./cart-control";
 
+
 const SairaStencilOne = SairaStencilOneFont({
     subsets: ["latin"],
     weight: ["400"],
@@ -20,6 +21,7 @@ const TagHeader = styled.header`
     align-items: center;
     justify-content: space-between;
     padding: 20px 35px;
+    height: 80px; 
 
     > div {
         display: flex;
@@ -50,6 +52,8 @@ export function Header(props : HeaderProps){
                 <PrimaryInputWSearchIcon placeholder="Procurando algo específico"/>
                 <CartControl/>
            </div>
+           
         </TagHeader>
+        
     )
 }

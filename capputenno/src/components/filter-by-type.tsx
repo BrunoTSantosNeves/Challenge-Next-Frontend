@@ -11,8 +11,9 @@ const FilterList = styled.ul`
     align-items: center;
     justify-content: center;
     gap: 40px;
-    margin-top: 105px;
+    height: 80px;
     list-style: none;
+   
 
 `
 const FilterItem = styled.li<FilterBarItemProps>`
