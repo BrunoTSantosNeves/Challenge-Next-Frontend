@@ -7,15 +7,19 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL as string;
 const fetch = (): AxiosPromise<ProductsFetchResponse> => {
     return axios.post(
         API_URL, 
-        `
-        query{
-          allProducts{
+
+        {
+          query:  `
+           query{
+            allProducts{
             id
             name
             price_in_cents
+            image_url
           }
         }     
         `
+        }
     );
 }
 
@@ -25,6 +29,6 @@ export function useProducts(){
         queryKey: ['products']
     });
 
-    return { data: data?.data.data.allProducts };
+    return { data: data?.data?.data?.allProducts };
 }
 
