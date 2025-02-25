@@ -1,11 +1,12 @@
 import type { NextConfig } from "next";
-import { isStyledComponent } from "styled-components";
 
 const nextConfig: NextConfig = {
+  images: {
+    domains: ['localhost'],
+  },
   compiler: {
-      styledComponents:  true
-  
-  }
+    styledComponents: true,
+  },
 };
 
 export default nextConfig;
