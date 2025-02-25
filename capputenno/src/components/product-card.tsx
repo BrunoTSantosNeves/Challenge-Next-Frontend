@@ -20,7 +20,7 @@ const Card = styled.div`
 
      width: 256px;
 
-    image {
+    img {
         width: 256px;
         height: 300px;
     }

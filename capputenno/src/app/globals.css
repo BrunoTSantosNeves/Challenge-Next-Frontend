@@ -1,5 +1,6 @@
 :root {
   --background: #ffffff;
+  --bg-primary: #F0F0F5;
   --foreground: #171717;
   --logo--color: #5D5D6D;
   --bg--secondary: #F3F5F6;
@@ -15,6 +16,7 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --bg-primary: #F0F0F5;
   }
 }
 
