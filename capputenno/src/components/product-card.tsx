@@ -58,14 +58,24 @@ const Card = styled.div`
 `;
 
 export function ProductCard(props: ProductCardProps) {
+  function formatValue(valueInCents: number) {
+    const formattedValue = valueInCents / 100;
+    return formattedValue.toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+      minimumFractionDigits: 2,
+    });
+  }
+
   return (
     <Card>
       <img src={props.image} alt={props.title} />
       <div>
         <h3>{props.title}</h3>
         <div></div>
-        <p>R$ {props.price}</p>
+        <p>{formatValue(props.price)}</p>
       </div>
     </Card>
   );
 }
+
