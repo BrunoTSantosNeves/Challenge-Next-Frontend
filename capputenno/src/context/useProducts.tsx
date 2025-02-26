@@ -1,10 +1,10 @@
 import { useFilter } from "@/hooks/useFilter";
-import { FilterType } from "@/types/filter-types";
 import { ProductsFetchResponse } from "@/types/products-response";
-import { getCategorybyType, getFieldByPriority } from "@/utils/graphql-filters";
+import { getCategorybyType, getFieldByPriority, MountQuerry } from "@/utils/graphql-filters";
 import { useQuery } from "@tanstack/react-query";
 import axios, { AxiosPromise } from "axios";
-import { PriorityTypes } from "./priority-types";
+import { useDeferredValue } from "react";
+
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL as string;
 
@@ -15,47 +15,19 @@ const fetch = (query: string): AxiosPromise<ProductsFetchResponse> => {
     );
 }
 
-const MountQuerry = (type: FilterType, priority: PriorityTypes) => {
-  if (type === FilterType.ALL && priority === PriorityTypes.POPULLARITY) {
-      return `
-      query {
-        allProducts(sortField: "sales", sortOrder: "DESC") {
-          id
-          name
-          price_in_cents
-          image_url
-        }
-      }     
-      `;
-  }
 
-  const sortSettings = getFieldByPriority(priority);
-  const categoryFilter = getCategorybyType(type);
-
-  return `
-      query {
-        allProducts(
-          ${categoryFilter ? `filter: { category: "${categoryFilter}" },` : ""}
-          sortField: "${sortSettings.field}", 
-          sortOrder: "${sortSettings.order}"
-        ) {
-          id
-          name
-          price_in_cents
-          image_url
-          category
-        }
-      }
-  `;
-};
 export function useProducts(){
-    const { type, priority } = useFilter();
+    const { type, priority, search } = useFilter();
+    const searchDeferred = useDeferredValue(search)
     const query = MountQuerry(type, priority);
     const { data } = useQuery({
         queryFn: () => fetch(query),
         queryKey: ['products', type, priority]
     });
 
-    return { data: data?.data?.data?.allProducts };
+    const products = data?.data?.data?.allProducts
+    const FilteredProducts = products?.filter(product => product.name.includes(searchDeferred))
+
+    return { data: FilteredProducts };
 }
 
