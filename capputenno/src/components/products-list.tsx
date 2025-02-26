@@ -9,6 +9,8 @@ const ListContainer = styled.div`
   grid-template-columns: repeat(3, 1fr); /* Três colunas iguais */
   grid-gap: 32px;
   max-width: 100%;
+
+  margin-top: 32px;
 `
 
 export function ProductsList() {
